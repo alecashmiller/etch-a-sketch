@@ -1,4 +1,12 @@
-const div = document.createElement('div');
+let div;
+const container = document.querySelector('#container');
 
-const body = document.querySelector('body');
-body.appendChild(div);
+for(i = 0; i < 256; i++) {
+    let box = document.createElement('div');
+    box.textContent = "hi";
+    container.appendChild(box);
+    
+}
+
+
+

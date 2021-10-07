@@ -10,6 +10,8 @@ for(i = 0; i < 256; i++) {
 const boxes = document.querySelectorAll('.box');
 
 
+
+
 boxes.forEach(box => {
     function randomColor() {
         let r = Math.floor(Math.random() * 256);
@@ -24,18 +26,25 @@ boxes.forEach(box => {
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
 resetButton = document.querySelector('#reset');
 
-resetButton.addEventListener('click', () => {
-    boxes.forEach(box => {
-        box.style.backgroundColor = 'white';
-    });
-});
+
 
 
 resetButton.addEventListener('click', () => {
-    for(i=0; i < 256; i++) {
-    container.removeChild(boxes[i]);
+    while(container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
     }
     
     x = parseInt(prompt('enter number of boxes'));
@@ -49,19 +58,30 @@ resetButton.addEventListener('click', () => {
         box.style.height = height + 'px';
         container.appendChild(box);
     }
-
-
-
+    const boxes = document.querySelectorAll('.box');
     
     boxes.forEach(box => {
-        box.style.width = width + 'px';
-        box.style.height = width + 'px';
-        
+        function randomColor() {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            let rgb = 'rgb(' + r + ',' + g + ',' + b + ')';
+            box.style.backgroundColor = rgb;
+        }
+        box.addEventListener('mouseover', () => {
+            
+            randomColor();
+        });
     });
+
+
     
-
-
 });
+
+
+
+
+
 
 
 
